@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
   });
 
 app.get('/rtm_token', (req, res) => {
-  const username = req.query.username;
+  const userID = req.query.userID;
 
   if (!username) {
     res.status(400).json({ error: 'User name is required.' });
@@ -30,7 +30,7 @@ app.get('/rtm_token', (req, res) => {
   const token = RtmTokenBuilder.buildToken(
     APP_ID,
     APP_CERTIFICATE,
-    username,
+    userID,
     RtmRole.Rtm_User,
     privilegeExpiredTs
   );
