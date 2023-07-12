@@ -17,8 +17,8 @@ app.use(function (req, res, next) {
 app.get('/rtm_token', (req, res) => {
   const userID = req.query.userID;
 
-  if (!username) {
-    res.status(400).json({ error: 'User name is required.' });
+  if (!userID) {
+    res.status(400).json({ error: 'User ID is required.' });
     return;
   }
  
